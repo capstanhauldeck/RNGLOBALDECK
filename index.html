@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RN GLOBAL DECK • Carrier Sign-Up</title>
+  <meta name="description" content="Partner with trusted dispatchers — submit carrier documents (COI, W9, MC Authority, Factoring NOA) and get onboarded fast." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="RN GLOBAL DECK • Carrier Sign-Up" />
+  <meta property="og:description" content="Secure, fast carrier onboarding for owner-operators and small fleets." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png" />
+  
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <style>
+    :root{--bg:#071323;--card:#0e1a2a;--muted:#98a3b3}
+    body{background:linear-gradient(180deg,var(--bg),#04101b);color:#fff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial}
+    /* subtle parallax truck background layered over dark gradient */
+    .parallax-bg{
+      background-image:
+        radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(180deg,var(--bg),#04101b);
+      background-size: 180px 180px, auto;
+      background-repeat: repeat, no-repeat;
+      background-attachment: fixed, fixed;
+      background-position: top left, center;
+    }
+    /* animated route line */
+    .route path{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 6s linear forwards}
+    @keyframes draw{to{stroke-dashoffset:0}}
+    /* file input visuals */
+    input[type=file]{color:transparent}
+    /* missing utility classes mapped to CSS variables */
+    .bg-card{background-color:var(--card)}
+    .text-muted{color:var(--muted)}
+  </style>
+</head>
+<body class="min-h-screen parallax-bg">
+  <header class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <img src="logo.png" alt="RN GLOBAL DECK" class="h-12 w-12 object-contain" />
+      <div>
+        <h1 class="text-xl font-semibold">RN GLOBAL DECK</h1>
+        <p class="text-sm text-gray-300">Carrier Onboarding & Document Submission</p>
+      </div>
+    </div>
+    <nav class="hidden md:flex gap-6 text-sm items-center">
+      <a href="#about" class="hover:text-accent">About</a>
+      <a href="#requirements" class="hover:text-accent">Requirements</a>
+      <a href="#apply" class="bg-accent text-black px-4 py-2 rounded-md font-medium">Apply</a>
+    </nav>
+
+    <!-- mobile menu -->
+    <div class="md:hidden">
+      <button id="mobileToggle" class="px-3 py-2 bg-white/10 rounded">Menu</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <div data-aos="fade-right">
+      <h2 class="text-3xl md:text-4xl font-extrabold leading-tight">Partner with Trusted Dispatchers</h2>
+      <p class="mt-4 text-gray-300">Submit your carrier documents and get onboarded fast. Secure, transparent, and built for carriers of all sizes.</p>
+      <div class="mt-6 flex gap-4">
+        <a href="#apply" class="inline-block bg-accent text-black px-5 py-3 rounded-md font-semibold">Start Application</a>
+        <a href="#requirements" class="inline-block border border-white/10 px-5 py-3 rounded-md text-sm">See Requirements</a>
+      </div>
+
+      <div class="mt-8 grid grid-cols-3 gap-4 text-sm text-gray-300">
+        <div class="p-4 bg-white/5 rounded shadow-sm">
+          <div class="text-2xl font-bold">🚛 250+</div>
+          <div class="text-xs mt-1">Carriers Onboarded</div>
+        </div>
+        <div class="p-4 bg-white/5 rounded shadow-sm">
+          <div class="text-2xl font-bold">📦 1,000+</div>
+          <div class="text-xs mt-1">Loads Coordinated</div>
+        </div>
+        <div class="p-4 bg-white/5 rounded shadow-sm">
+          <div class="text-2xl font-bold">🤝 40+</div>
+          <div class="text-xs mt-1">Partners</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- animated US route svg -->
+    <div data-aos="fade-left" class="w-full">
+      <div class="bg-gradient-to-br from-white/10 to-transparent rounded-lg p-6">
+        <!-- Simple illustrative SVG map with animated path -->
+        <svg viewBox="0 0 600 380" class="w-full h-64 route">
+          <rect x="0" y="0" width="100%" height="100%" fill="transparent" />
+          <path id="routePath" d="M20 320 C120 180, 240 220, 360 140 C460 80, 560 120, 580 60" fill="none" stroke="#00AEEF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.95" />
+          <!-- moving dot -->
+          <circle cx="20" cy="320" r="6" fill="#00AEEF">
+            <animateMotion dur="6s" repeatCount="indefinite">
+              <mpath xlink:href="#routePath" />
+            </animateMotion>
+          </circle>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-6xl mx-auto px-6 py-8" data-aos="fade-up">
+    <div class="bg-gradient-to-br from-black/20 to-transparent p-6 rounded-lg">
+      <h3 class="text-2xl font-bold">About RN GLOBAL DECK</h3>
+      <p class="mt-3 text-gray-300">We connect carriers with top brokers and provide dedicated dispatch support — transparent pricing and a dedicated dispatcher per truck.</p>
+      <ul class="mt-4 grid md:grid-cols-3 gap-4">
+        <li class="p-4 bg-card rounded">
+          <h4 class="font-semibold">We work with top brokers</h4>
+          <p class="text-sm text-muted text-gray-400 mt-2">Access to vetted broker networks to keep your trucks moving.</p>
+        </li>
+        <li class="p-4 bg-card rounded">
+          <h4 class="font-semibold">No hidden fees</h4>
+          <p class="text-sm text-muted text-gray-400 mt-2">Transparent pricing and payout clarity.</p>
+        </li>
+        <li class="p-4 bg-card rounded">
+          <h4 class="font-semibold">Dedicated dispatcher</h4>
+          <p class="text-sm text-muted text-gray-400 mt-2">A dispatcher assigned to each truck for personalized support.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Requirements -->
+  <section id="requirements" class="max-w-6xl mx-auto px-6 py-8" data-aos="fade-up">
+    <div class="bg-card p-6 rounded-lg">
+      <h3 class="text-xl font-bold">Onboarding Requirements</h3>
+      <p class="mt-2 text-gray-300">Please have the following documents ready before applying.</p>
+      <ul class="mt-4 grid md:grid-cols-2 gap-3 text-gray-200">
+        <li class="flex items-center gap-3"><span class="text-accent">✅</span> MC Authority Active</li>
+        <li class="flex items-center gap-3"><span class="text-accent">✅</span> 750K+ Liability Insurance</li>
+        <li class="flex items-center gap-3"><span class="text-accent">✅</span> W9 Form</li>
+        <li class="flex items-center gap-3"><span class="text-accent">✅</span> Factoring NOA or Voided Cheque</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Form Section -->
+  <section id="apply" class="max-w-6xl mx-auto px-6 py-8" data-aos="fade-up">
+    <div class="bg-gradient-to-br from-black/20 to-transparent p-6 rounded-lg">
+      <h3 class="text-2xl font-bold">Carrier Information Form</h3>
+      <p class="mt-2 text-gray-300">Fill out the form below and upload required documents. We'll reach out after review.</p>
+
+      <!-- NOTE: Replace <YOUR_FORMSPREE_ID> with your Formspree form ID or endpoint URL -->
+      <form id="carrierForm" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4" enctype="multipart/form-data">
+        <div class="space-y-3">
+          <label class="text-sm">Company Name <span class="text-accent">*</span></label>
+          <input name="company_name" required class="w-full px-4 py-3 rounded bg-white/5 focus:ring-2 focus:ring-accent outline-none" />
+
+          <label class="text-sm">MC / DOT Number</label>
+          <input name="mc_dot" class="w-full px-4 py-3 rounded bg-white/5 outline-none" />
+
+          <label class="text-sm">Contact Person <span class="text-accent">*</span></label>
+          <input name="contact_person" required class="w-full px-4 py-3 rounded bg-white/5 outline-none" />
+
+          <label class="text-sm">Phone Number <span class="text-accent">*</span></label>
+          <input name="phone" type="tel" required class="w-full px-4 py-3 rounded bg-white/5 outline-none" />
+
+          <label class="text-sm">Email Address <span class="text-accent">*</span></label>
+          <input name="email" type="email" required class="w-full px-4 py-3 rounded bg-white/5 outline-none" />
+        </div>
+
+        <div class="space-y-3">
+          <label class="text-sm">COI (Certificate of Insurance) <span class="text-accent">*</span></label>
+          <input name="coi" type="file" accept=".pdf,.jpg,.png" required class="w-full px-4 py-3 rounded bg-white/5" />
+
+          <label class="text-sm">W9 <span class="text-accent">*</span></label>
+          <input name="w9" type="file" accept=".pdf,.jpg,.png" required class="w-full px-4 py-3 rounded bg-white/5" />
+
+          <label class="text-sm">MC Authority <span class="text-accent">*</span></label>
+          <input name="mc_authority" type="file" accept=".pdf,.jpg,.png" required class="w-full px-4 py-3 rounded bg-white/5" />
+
+          <label class="text-sm">Factoring NOA or Voided Cheque <span class="text-accent">*</span></label>
+          <input name="factoring" type="file" accept=".pdf,.jpg,.png" required class="w-full px-4 py-3 rounded bg-white/5" />
+
+          <label class="text-sm">Comments / Notes (optional)</label>
+          <textarea name="notes" rows="3" class="w-full px-4 py-3 rounded bg-white/5 outline-none"></textarea>
+        </div>
+
+        <!-- full width row -->
+        <div class="md:col-span-2">
+          <div id="progressWrapper" class="w-full bg-white/5 rounded overflow-hidden h-3 mt-4 hidden">
+            <div id="progressBar" class="h-3 bg-accent w-0"></div>
+          </div>
+
+          <div class="mt-4 flex items-center gap-3">
+            <button id="submitBtn" type="submit" class="bg-accent text-black px-6 py-3 rounded-md font-semibold">Submit Documents</button>
+            <div id="formMsg" class="text-sm text-gray-300"></div>
+          </div>
+        </div>
+      </form>
+
+      <!-- Success Modal / Message -->
+      <div id="successBox" class="hidden mt-6 p-6 bg-green-900/30 rounded items-center">
+        <div class="flex items-center gap-4">
+          <div class="rounded-full bg-green-500 w-12 h-12 flex items-center justify-center">✓</div>
+          <div>
+            <div class="font-semibold">Your documents have been submitted.</div>
+            <div class="text-sm text-gray-300">Our team will contact you shortly.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="max-w-6xl mx-auto px-6 py-8 text-sm text-gray-400">
+    <div class="flex items-center justify-between">
+      <div>© RN GLOBAL DECK — Built for carriers • All rights reserved.</div>
+      <div>Need help? Email <a href="mailto:hello@rnglobaldeck.com" class="hover:text-accent">hello@rnglobaldeck.com</a></div>
+    </div>
+  </footer>
+
+  <!-- AOS init -->
+  <script>AOS.init({duration:700,once:true,offset:60});</script>
+
+  <!-- Form handling script (submits to Formspree) -->
+  <script>
+    // Replace this with your Formspree endpoint (example: https://formspree.io/f/mnqwerty)
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xpwyekbg';
+
+    const form = document.getElementById('carrierForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formMsg = document.getElementById('formMsg');
+    const progressWrapper = document.getElementById('progressWrapper');
+    const progressBar = document.getElementById('progressBar');
+    const successBox = document.getElementById('successBox');
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      formMsg.textContent='';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+      progressWrapper.classList.remove('hidden');
+      progressBar.style.width = '6%';
+
+      const fd = new FormData(form);
+
+      // Fake progress to improve UX (since fetch doesn't provide progress for FormData easily)
+      let progress = 6;
+      const progInterval = setInterval(()=>{
+        progress = Math.min(90, progress + Math.random()*10);
+        progressBar.style.width = progress + '%';
+      }, 400);
+
+      try{
+        const res = await fetch(FORMSPREE_ENDPOINT, {method:'POST', body:fd});
+        clearInterval(progInterval);
+        progressBar.style.width = '100%';
+
+        if(res.ok){
+          // show success
+          form.reset();
+          submitBtn.textContent = 'Submitted';
+          successBox.classList.remove('hidden');
+          // small confetti effect
+          runConfetti();
+        } else {
+          const text = await res.text();
+          formMsg.textContent = 'Submission failed. Please try again.';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Documents';
+        }
+      }catch(err){
+        clearInterval(progInterval);
+        formMsg.textContent = 'Network error. Try again.';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Documents';
+      } finally {
+        setTimeout(()=>{progressWrapper.classList.add('hidden');progressBar.style.width='0%';},1200);
+      }
+    });
+
+    // Lightweight confetti - simple particles
+    function runConfetti(){
+      const count = 30;
+      for(let i=0;i<count;i++){
+        const p = document.createElement('div');
+        p.style.position='fixed';
+        p.style.left = (50 + (Math.random()*60-30)) + '%';
+        p.style.top = (40 + Math.random()*20) + '%';
+        p.style.width = '8px';
+        p.style.height = '12px';
+        p.style.background = ['#00AEEF','#7FFFD4','#FFD166','#FF6B6B'][Math.floor(Math.random()*4)];
+        p.style.transform = 'translateY(0) rotate('+Math.random()*360+'deg)';
+        p.style.opacity = '0.95';
+        p.style.borderRadius='2px';
+        p.style.zIndex = 9999;
+        document.body.appendChild(p);
+        const dx = (Math.random()*200 - 100);
+        const dy = (Math.random()*200 + 80);
+        p.animate([{transform:'translateY(0) rotate(0deg)', opacity:1},{transform:'translate('+dx+'px,'+dy+'px) rotate(720deg)', opacity:0}],{duration:1600+Math.random()*800,easing:'cubic-bezier(.18,.6,.4,1)'});
+        setTimeout(()=>p.remove(),2200);
+      }
+    }
+
+    // Mobile menu toggle
+    document.getElementById('mobileToggle').addEventListener('click', ()=>{
+      const nav = document.querySelector('nav');
+      nav.classList.toggle('hidden');
+    });
+  </script>
+
+  <!-- Accessibility: skip link focus hack -->
+  <a href="#apply" class="sr-only">Skip to application form</a>
+</body>
+</html>
